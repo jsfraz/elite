@@ -1,5 +1,13 @@
 # elite
 
+## sway
+
+### Linking config folder
+
+```bash
+ln -sf $PWD/.config/sway ~/.config/sway
+```
+
 ## ags
 
 > [!NOTE]
@@ -9,5 +17,5 @@ tip: running from an xwayland terminal can cause this, for example VsCode` you n
 ### Linking config folder
 
 ```bash
-ln -sf /home/razj/Projekty/elite/.config/ags /home/razj/.config/ags
+ln -sf $PWD/.config/ags ~/.config/ags
 ```
