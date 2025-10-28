@@ -5,12 +5,11 @@ $bg-color: #{"@theme_bg_color"};
 // Import specific module styles
 @use "modules/osIcon/osIcon.scss";
 
-/* Apple Liquid Glass Effect for AGS Bar */
 window.Bar {
   background: transparent;
   color: $fg-color;
   font-weight: 500;
-  margin: 10px 0px 10px 10px;
+  margin: 15px 0px 15px 10px;
 
   .box {
     padding-bottom: 10px;

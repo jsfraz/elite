@@ -11,16 +11,26 @@ set $term foot
 set $menu rofi -show drun
 
 ### Swayfx
-blur enable
 corner_radius 10
 
-layer_effects "ags" {
+layer_effects "gtk4-layer-shell" {
     blur enable;
     blur_xray enable;
     blur_ignore_transparent enable;
     shadows enable;
-    corner_radius 20;
 }
+
+### Gaps and borders
+gaps bottom 5
+gaps horizontal 5
+gaps vertical 5
+gaps inner 10
+gaps left 5
+gaps outer 5
+gaps right 5
+gaps top 5
+smart_borders enable
+smart_gaps disable
 
 # Wallpaper
 output * bg /home/razj/Tapety/red.png fill
@@ -198,8 +208,8 @@ bindsym $mod+r mode "resize"
     # Special keys to adjust brightness via brightnessctl
     bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
     bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
-    # Special key to take a screenshot with grim
-    bindsym Print exec grim
+    # Screenshot with grim
+    bindsym Print exec grim -g "$(slurp)" -t png - | wl-copy -t image/png
 
 #
 # Status Bar:
@@ -218,15 +228,3 @@ bindsym $mod+r mode "resize"
 #        inactive_workspace #32323200 #32323200 #5c5c5c
 #    }
 #}
-
-### Gaps and borders
-gaps bottom 5
-gaps horizontal 5
-gaps vertical 5
-gaps inner 10
-gaps left 5
-gaps outer 5
-gaps right 5
-gaps top 5
-smart_borders off
-smart_gaps off
