@@ -3,8 +3,14 @@
 
 button.OsIcon {
     background-color: transparent;
-    border-radius: 20px; // Rounded corners
+    border-radius: 20px;
     transition: background-color 0.25s ease;
+
+    image {
+        filter: brightness(0) saturate(100%) invert(1);
+        opacity: 1;
+        color: colors.$foreground;
+    }
 }
 
 button.OsIcon:hover {
