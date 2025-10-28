@@ -6,6 +6,7 @@ $bg-color: #{"@theme_bg_color"};
 
 // Import specific module styles
 @use "modules/osIcon/osIcon.scss";
+@use "modules/clock/clock.scss";
 // Generated color palette from pywal
 @use "wal/colors.scss";
 

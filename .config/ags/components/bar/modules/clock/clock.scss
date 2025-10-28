@@ -1,0 +1,15 @@
+// Generated color palette from pywal
+@use "wal/colors.scss";
+
+button.Clock {
+    background-color: transparent;
+
+    button.Clock:hover {
+        background-color: rgba(colors.$foreground, 0.1);
+    }
+
+    .digit-stack {
+        font-size: 12px;
+        font-family: 'FiraCode Nerd Font Mono', monospace;
+    }
+}

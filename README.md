@@ -8,9 +8,10 @@ Wallpapers come from [gnome-backgrounds package](https://zebreus.github.io/all-g
 
 ## Dependencies
 
+- git
 - [swayfx](https://github.com/WillPower3309/swayfx)
 - [ags](https://github.com/Aylur/ags)
-- [rofi](https://github.com/davatorium/rofi)
+- [rofi-wayland](https://github.com/davatorium/rofi)
 - [grimshot](https://sr.ht/~emersion/grim/) ([sway-contrib package](https://github.com/OctopusET/sway-contrib))
 - [pywal](https://github.com/dylanaraps/pywal)
 

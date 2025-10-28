@@ -16,26 +16,22 @@ corner_radius 10
 layer_effects "gtk4-layer-shell" {
     blur_radius 3;
     blur_passes 1;
+    blur_noise 0.0;
     blur enable;
-    blur_xray disable;
+    blur_xray enable;
     blur_ignore_transparent enable;
+    shadows disable;
 }
 
 ### Gaps and borders
-gaps bottom 5
-gaps horizontal 5
-gaps vertical 5
+gaps outer 10
 gaps inner 10
-gaps left 5
-gaps outer 5
-gaps right 5
-gaps top 5
 smart_borders enable
 smart_gaps disable
 
 # Wallpaper
-output * bg ~/.config/sway/LightWaves2.webp fill
-# wal -i ~/.config/sway/LightWaves2.webp --saturate 0.5 && ln -s ~/.cache/wal ~/.config/ags/wal
+output * bg ~/.config/sway/backgrounds/LightWaves-b4b59bda185758ebaa2735e4e9fc78a2f7277c64.webp fill
+# wal -i ~/.config/sway/backgrounds/LightWaves-b4b59bda185758ebaa2735e4e9fc78a2f7277c64.webp --saturate 0.5 && ln -s ~/.cache/wal ~/.config/ags/wal
 
 ### Idle configuration
 #

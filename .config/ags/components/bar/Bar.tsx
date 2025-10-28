@@ -1,6 +1,7 @@
 import app from "ags/gtk4/app"
 import { Astal, Gtk, Gdk } from "ags/gtk4"
 import OsIcon from "./modules/osIcon/OsIcon"
+import Clock from "./modules/clock/Clock"
 
 export default function Bar(gdkmonitor: Gdk.Monitor) {
   const { TOP, LEFT, BOTTOM } = Astal.WindowAnchor
@@ -24,12 +25,22 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
       >
         <box
           $type="start"
-          spacing={12}
+          spacing={4}
           homogeneous={false}
           orientation={Gtk.Orientation.VERTICAL}
           class={"box"}
         >
           <OsIcon />
+        </box>
+        <box
+          $type="end"
+          spacing={4}
+          homogeneous={false}
+          orientation={Gtk.Orientation.VERTICAL}
+          class={"box"}
+        >
+          <Gtk.Separator class="short-separator" />
+          <Clock />
         </box>
       </centerbox>
     </window>
