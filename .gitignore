@@ -1,0 +1,2 @@
+# Ignore, because it's symlinked to ~/.cache/wal
+.config/ags/wal

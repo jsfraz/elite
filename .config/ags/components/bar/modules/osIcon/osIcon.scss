@@ -1,9 +1,12 @@
+// Generated color palette from pywal
+@use "wal/colors.scss";
+
 button.OsIcon {
     background-color: transparent;
-    border-radius: 20px; // Kulaté rohy
+    border-radius: 20px; // Rounded corners
+    transition: background-color 0.25s ease;
 }
 
 button.OsIcon:hover {
-    // TODO cursor and theme color
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(colors.$foreground, 0.1);
 }

@@ -1,6 +1,20 @@
 # elite
 
-## sway
+Rice for my shit Elitebook 840.
+
+# TODO screenshot
+
+Wallpapers come from [gnome-backgrounds package](https://zebreus.github.io/all-gnome-backgrounds/wallpaper/70140479abcf51913eca764c686068c2e643a685).
+
+## Dependencies
+
+- [swayfx](https://github.com/WillPower3309/swayfx)
+- [ags](https://github.com/Aylur/ags)
+- [rofi](https://github.com/davatorium/rofi)
+- [grimshot](https://sr.ht/~emersion/grim/) ([sway-contrib package](https://github.com/OctopusET/sway-contrib))
+- [pywal](https://github.com/dylanaraps/pywal)
+
+## swayfx
 
 ### Linking config folder
 

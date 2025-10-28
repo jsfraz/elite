@@ -14,10 +14,11 @@ set $menu rofi -show drun
 corner_radius 10
 
 layer_effects "gtk4-layer-shell" {
+    blur_radius 3;
+    blur_passes 1;
     blur enable;
-    blur_xray enable;
+    blur_xray disable;
     blur_ignore_transparent enable;
-    shadows enable;
 }
 
 ### Gaps and borders
@@ -33,7 +34,8 @@ smart_borders enable
 smart_gaps disable
 
 # Wallpaper
-output * bg /home/razj/Tapety/red.png fill
+output * bg ~/.config/sway/LightWaves2.webp fill
+# wal -i ~/.config/sway/LightWaves2.webp --saturate 0.5 && ln -s ~/.cache/wal ~/.config/ags/wal
 
 ### Idle configuration
 #

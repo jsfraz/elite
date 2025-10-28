@@ -9,7 +9,7 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
     <window
       visible
       name="bar"
-      class="Bar liquid-glass"
+      class="Bar"
       gdkmonitor={gdkmonitor}
       exclusivity={Astal.Exclusivity.EXCLUSIVE}
       anchor={TOP | LEFT | BOTTOM}

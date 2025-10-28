@@ -1,13 +1,17 @@
+/*
 // https://gitlab.gnome.org/GNOME/gtk/-/blob/gtk-3-24/gtk/theme/Adwaita/_colors-public.scss
 $fg-color: #{"@theme_fg_color"};
 $bg-color: #{"@theme_bg_color"};
+*/
 
 // Import specific module styles
 @use "modules/osIcon/osIcon.scss";
+// Generated color palette from pywal
+@use "wal/colors.scss";
 
 window.Bar {
   background: transparent;
-  color: $fg-color;
+  color: colors.$foreground;
   font-weight: 500;
   margin: 15px 0px 15px 10px;
 
