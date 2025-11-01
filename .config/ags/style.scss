@@ -35,6 +35,11 @@ $bg-color: #{"@theme_bg_color"};
   margin-right: 6px;
 }
 
-.hoverFgBtn:hover {
+.transparentThenHoverFg {
+  background-color: transparent;
+  transition: background-color 0.25s ease;
+}
+
+.transparentThenHoverFg:hover {
   background-color: rgba(colors.$foreground, 0.1);
 }

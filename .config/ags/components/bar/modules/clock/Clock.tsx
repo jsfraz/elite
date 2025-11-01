@@ -52,7 +52,10 @@ function TimeDisplay() {
 
 export default function Clock() {
     return (
-        <button class="Clock hoverFgBtn" cursor={Gdk.Cursor.new_from_name("pointer", null)}>
+        <button
+            class="Clock transparentThenHoverFg"
+            cursor={Gdk.Cursor.new_from_name("pointer", null)}
+        >
             <TimeDisplay />
         </button>
     );

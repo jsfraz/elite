@@ -2,9 +2,7 @@
 @use "wal/colors.scss";
 
 button.OsIcon {
-    background-color: transparent;
     border-radius: 20px;
-    transition: background-color 0.25s ease;
 
     image {
         filter: brightness(0) saturate(100%) invert(1);
