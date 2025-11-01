@@ -6,6 +6,7 @@ $bg-color: #{"@theme_bg_color"};
 
 // Import specific component styles
 @use "components/bar/bar.scss";
+@use "components/powerMenu/powerMenu.scss";
 // Generated color palette from pywal
 @use "wal/colors.scss";
 

@@ -12,6 +12,7 @@ $bg-color: #{"@theme_bg_color"};
 @use "wal/colors.scss";
 
 window.Bar {
+  font-family: 'FiraCode Nerd Font Mono', monospace;
   background: transparent;
   color: colors.$foreground;
   font-weight: 500;

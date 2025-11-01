@@ -1,8 +1,8 @@
-import { Gdk, Gtk } from "ags/gtk4"
+import app from "ags/gtk4/app"
+import { Gdk } from "ags/gtk4"
 
-// Icon click
-function onClicked(source: Gtk.Button): void {
-
+function onClicked(): void {
+  app.toggle_window("power-menu")
 }
 
 export default function OsIcon() {

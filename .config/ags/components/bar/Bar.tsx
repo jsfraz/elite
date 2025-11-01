@@ -9,14 +9,14 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
 
   return (
     <window
-      visible
       name="bar"
+      application={app}
       class="Bar"
       gdkmonitor={gdkmonitor}
       exclusivity={Astal.Exclusivity.EXCLUSIVE}
       anchor={TOP | LEFT | BOTTOM}
-      application={app}
       layer={Astal.Layer.OVERLAY}
+      visible
     >
       <centerbox
         cssName="centerbox"
