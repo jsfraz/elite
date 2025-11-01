@@ -4,3 +4,4 @@
 # All backgrounds ever from gnome-backgrounds package
 all-gnome-backgrounds/
 .config/sway/backgrounds/
+.config/sway/config.json

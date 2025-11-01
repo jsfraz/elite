@@ -15,9 +15,10 @@ Wallpapers come from [gnome-backgrounds package](https://zebreus.github.io/all-g
 - [grimshot](https://sr.ht/~emersion/grim/) ([sway-contrib package](https://github.com/OctopusET/sway-contrib))
 - [pywal](https://github.com/dylanaraps/pywal)
 - [FiraCode Nerd Font](https://www.nerdfonts.com)
-- [AstalBattery](https://aylur.github.io/astal/guide/libraries/battery)
+- [AstalBattery](https://aylur.github.io/astal/guide/libraries/battery) (run `ags types` after installing)
 - [libnotify](https://gitlab.gnome.org/GNOME/libnotify)
 - [mako](https://github.com/emersion/mako)
+- [jq](https://github.com/jqlang/jq)
 
 ## swayfx
 
@@ -39,7 +40,22 @@ tip: running from an xwayland terminal can cause this, for example VsCode` you n
 ln -sf $PWD/.config/ags ~/.config/ags
 ```
 
-### TODO
+### Generating SCSS manully
 
+To run `ags`, you need to generate SCSS using `pwal` and symlink it to `ags` folder:
+
+```bash
+wal -i $BACKGROUND_FILE --saturate 0.5 && ln -s ~/.cache/wal ~/.config/ags/wal
+```
+
+### Starting manually
+
+When starting `ags` manually, make sure the `GI_TYPELIB_PATH` includes the path to `AstalBattery` typelib:
+
+```bash
 find /usr -name "*AstalBattery*.typelib" 2>/dev/null
 export GI_TYPELIB_PATH=/usr/local/lib/girepository-1.0:$GI_TYPELIB_PATH
+ags run
+```
+
+This is done automatically when using provided `sway` config.

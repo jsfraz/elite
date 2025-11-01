@@ -3,7 +3,7 @@ import { execAsync } from "ags/process";
 interface NotifyOptions {
     summary: string;
     body: string;
-    iconName: "dialog-information" | "dialog-warning" | "dialog-error" | "battery-low";
+    iconName: "dialog-information" | "dialog-warning" | "dialog-error" | "battery-low" | "battery-full-charged";
     urgency: "low" | "normal" | "critical";
 }
 
