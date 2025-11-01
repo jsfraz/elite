@@ -11,16 +11,12 @@ set $term foot
 set $menu rofi -show drun
 
 ### Swayfx
-corner_radius 10
+corner_radius 15
 
 layer_effects "gtk4-layer-shell" {
     blur_radius 3;
-    blur_passes 1;
-    blur_noise 0.0;
     blur enable;
-    blur_xray enable;
     blur_ignore_transparent enable;
-    shadows disable;
 }
 
 ### Gaps and borders

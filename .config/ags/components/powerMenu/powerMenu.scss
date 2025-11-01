@@ -1,38 +1,38 @@
+// Generated color palette from pywal
+@use "wal/colors.scss";
+
 .PowerMenu {
   background-color: transparent;
 
   box {
     font-family: 'FiraCode Nerd Font Mono', monospace;
-    // background-color: rgba(0, 0, 0, 0.9);
-    // border-radius: 12px;
-    padding: 20px;
+    padding: 15px;
     margin: 10px;
-    // border: 2px solid rgba(255, 255, 255, 0.1);
 
     .power-button {
-      min-width: 200px;
-      min-height: 50px;
+      min-width: 150px;
+      min-height: 30px;
       border-radius: 8px;
       background-color: rgba(255, 255, 255, 0.05);
       border: 1px solid rgba(255, 255, 255, 0.1);
-      color: #ffffff;
+      color: colors.$foreground;
       font-size: 16px;
       font-weight: 500;
       transition: all 0.2s ease-in-out;
 
       label {
-        color: #ffffff;
+        color: colors.$foreground;
       }
 
       &:hover {
-        background-color: rgba(255, 255, 255, 0.15);
-        border-color: rgba(255, 255, 255, 0.3);
-        transform: scale(1.02);
+        background-color: rgba(255, 255, 255, 0.1);
+        border-color: rgba(255, 255, 255, 0.25);
+        transform: scale(1.01);
       }
 
       &:active {
         background-color: rgba(255, 255, 255, 0.2);
-        transform: scale(0.98);
+        transform: scale(0.99);
       }
     }
   }

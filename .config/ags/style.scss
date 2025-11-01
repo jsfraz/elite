@@ -14,12 +14,12 @@ $bg-color: #{"@theme_bg_color"};
 .glass-container {
   // Multi-layered glass effect
   background: linear-gradient(135deg,
-      rgba(colors.$color4, 0.15) 0%,
-      rgba(colors.$color4, 0.05) 50%,
-      rgba(colors.$color4, 0.1) 100%);
+      rgba(colors.$color2, 0.15) 0%,
+      rgba(colors.$color2, 0.05) 50%,
+      rgba(colors.$color2, 0.1) 100%);
   // Border
-  border: 1px solid rgba(colors.$color4, 0.15);
-  border-top-color: rgba(colors.$color4, 0.25);
+  border: 1px solid rgba(colors.$color3, 0.15);
+  border-top-color: rgba(colors.$color3, 0.25);
   border-radius: 28px;
 }
 
@@ -38,7 +38,7 @@ $bg-color: #{"@theme_bg_color"};
 
 .transparentThenHoverFg {
   background-color: transparent;
-  transition: background-color 0.25s ease;
+  transition: background-color 0.2s ease-in-out;
 }
 
 .transparentThenHoverFg:hover {
