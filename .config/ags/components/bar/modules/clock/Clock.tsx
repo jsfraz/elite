@@ -1,9 +1,10 @@
 import { Gdk, Gtk } from "ags/gtk4"
 import { With } from "gnim";
-import { currentTimeString } from "../../../../utils/time";
+import { currentTimeString, getCurrentDateString } from "../../../../utils/time";
 
 // https://github.com/Youwes09/Ateon/blob/f07f4e6dea111afa8174a92a6035a691cd88d3c3/ags/utils/time.ts
 
+// Single digit stack
 function DigitStack(index: number) {
     return (
         <stack
@@ -32,6 +33,7 @@ function DigitStack(index: number) {
     );
 }
 
+// Time display (HH:MM)
 function TimeDisplay() {
     return (
         <box
@@ -55,6 +57,7 @@ export default function Clock() {
         <button
             class="Clock transparentThenHoverFg"
             cursor={Gdk.Cursor.new_from_name("pointer", null)}
+            tooltipText={getCurrentDateString()}
         >
             <TimeDisplay />
         </button>

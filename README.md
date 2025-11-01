@@ -16,6 +16,8 @@ Wallpapers come from [gnome-backgrounds package](https://zebreus.github.io/all-g
 - [pywal](https://github.com/dylanaraps/pywal)
 - [FiraCode Nerd Font](https://www.nerdfonts.com)
 - [AstalBattery](https://aylur.github.io/astal/guide/libraries/battery)
+- [libnotify](https://gitlab.gnome.org/GNOME/libnotify)
+- [mako](https://github.com/emersion/mako)
 
 ## swayfx
 

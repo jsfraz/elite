@@ -29,8 +29,8 @@ smart_borders enable
 smart_gaps disable
 
 # Wallpaper
-output * bg ~/.config/sway/backgrounds/LightWaves-b4b59bda185758ebaa2735e4e9fc78a2f7277c64.webp fill
-# wal -i ~/.config/sway/backgrounds/LightWaves-b4b59bda185758ebaa2735e4e9fc78a2f7277c64.webp --saturate 0.5 && ln -s ~/.cache/wal ~/.config/ags/wal
+# Use command:
+# swaymsg output "*" bg ~/.config/sway/backgrounds/LightWaves-b4b59bda185758ebaa2735e4e9fc78a2f7277c64.webp fill
 
 ### Idle configuration
 #
@@ -225,3 +225,6 @@ bindsym $mod+r mode "resize"
 #        inactive_workspace #32323200 #32323200 #5c5c5c
 #    }
 #}
+
+# Autostart commands
+exec_always mako
