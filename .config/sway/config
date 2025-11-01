@@ -24,7 +24,6 @@ layer_effects "gtk4-layer-shell" {
 }
 
 ### Gaps and borders
-gaps outer 10
 gaps inner 10
 smart_borders enable
 smart_gaps disable
