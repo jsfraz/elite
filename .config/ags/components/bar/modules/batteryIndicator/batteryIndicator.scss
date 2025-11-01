@@ -1,0 +1,40 @@
+// Generated color palette from pywal
+@use "wal/colors.scss";
+
+button.BatteryIndicator {
+    background-color: transparent;
+    padding: 4px 8px;
+    
+    .battery-cap {
+        min-width: 12px;
+        min-height: 3px;
+        background-color: colors.$foreground;
+        border-radius: 2px 2px 0 0;
+        margin: 0 auto;
+    }
+    
+    .battery-body {
+        min-width: 20px;
+        min-height: 40px;
+        border: 2px solid colors.$foreground;
+        border-radius: 3px;
+        background-color: transparent;
+        padding: 2px;
+        
+        .battery-level {
+            border-radius: 2px;
+            background-color: colors.$color2; // Zelená barva z pywal palety
+            transition: min-height 0.3s ease;
+            
+            &.charging {
+                background-color: colors.$color3; // Jiná barva při nabíjení
+                animation: pulse 2s infinite;
+            }
+        }
+    }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+}

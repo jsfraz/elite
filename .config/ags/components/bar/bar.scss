@@ -7,6 +7,7 @@ $bg-color: #{"@theme_bg_color"};
 // Import specific module styles
 @use "modules/osIcon/osIcon.scss";
 @use "modules/clock/clock.scss";
+@use "modules/batteryIndicator/batteryIndicator.scss";
 // Generated color palette from pywal
 @use "wal/colors.scss";
 
@@ -16,7 +17,7 @@ window.Bar {
   font-weight: 500;
   margin: 15px 0px 15px 10px;
 
-  .box {
+  .bottomPadding {
     padding-bottom: 10px;
   }
 }

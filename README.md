@@ -14,6 +14,8 @@ Wallpapers come from [gnome-backgrounds package](https://zebreus.github.io/all-g
 - [rofi-wayland](https://github.com/davatorium/rofi)
 - [grimshot](https://sr.ht/~emersion/grim/) ([sway-contrib package](https://github.com/OctopusET/sway-contrib))
 - [pywal](https://github.com/dylanaraps/pywal)
+- [FiraCode Nerd Font](https://www.nerdfonts.com)
+- [AstalBattery](https://aylur.github.io/astal/guide/libraries/battery)
 
 ## swayfx
 
@@ -34,3 +36,8 @@ tip: running from an xwayland terminal can cause this, for example VsCode` you n
 ```bash
 ln -sf $PWD/.config/ags ~/.config/ags
 ```
+
+### TODO
+
+find /usr -name "*AstalBattery*.typelib" 2>/dev/null
+export GI_TYPELIB_PATH=/usr/local/lib/girepository-1.0:$GI_TYPELIB_PATH
