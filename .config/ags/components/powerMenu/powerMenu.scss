@@ -3,37 +3,112 @@
 
 .PowerMenu {
   background-color: transparent;
+  font-family: 'FiraCode Nerd Font Mono';
 
-  box {
-    font-family: 'FiraCode Nerd Font Mono', monospace;
-    padding: 15px;
-    margin: 10px;
+  .power-menu-content {
+    padding: 20px;
+  }
 
-    .power-button {
-      min-width: 150px;
-      min-height: 30px;
-      border-radius: 8px;
-      background-color: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      color: colors.$foreground;
-      font-size: 16px;
-      font-weight: 500;
-      transition: all 0.2s ease-in-out;
+  .power-button {
+    min-width: 40px;
+    min-height: 40px;
+    padding: 12px;
+    border-radius: 15px;
+    background: linear-gradient(135deg,
+        rgba(255, 255, 255, 0.08) 0%,
+        rgba(255, 255, 255, 0.04) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
 
-      label {
-        color: colors.$foreground;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg,
+          transparent,
+          rgba(255, 255, 255, 0.1),
+          transparent);
+      transition: left 0.33s ease-in-out;
+    }
+
+    .power-icon {
+      font-size: 32px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    &:hover {
+      background: linear-gradient(135deg,
+          rgba(255, 255, 255, 0.15) 0%,
+          rgba(255, 255, 255, 0.10) 100%);
+      border-color: rgba(255, 255, 255, 0.25);
+      transform: translateY(-2px) scale(1.01);
+      box-shadow:
+        0 6px 20px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+
+      &::before {
+        left: 100%;
       }
 
-      &:hover {
-        background-color: rgba(255, 255, 255, 0.1);
-        border-color: rgba(255, 255, 255, 0.25);
-        transform: scale(1.01);
+      .power-icon {
+        transform: scale(1.075);
+        transition: transform 0.33s ease-in-out;
       }
+    }
 
-      &:active {
-        background-color: rgba(255, 255, 255, 0.2);
-        transform: scale(0.99);
-      }
+    &:active {
+      transform: translateY(0) scale(0.99);
+      background: rgba(255, 255, 255, 0.12);
+      box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.2),
+        inset 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  .shutdown-button {
+    .power-icon {
+      color: #ff6b6b;
+      filter: drop-shadow(0 0 8px rgba(255, 107, 107, 0.6));
+    }
+
+    &:hover {
+      background: linear-gradient(135deg,
+          rgba(255, 107, 107, 0.25) 0%,
+          rgba(255, 107, 107, 0.15) 100%);
+      border-color: rgba(255, 107, 107, 0.5);
+    }
+  }
+
+  .restart-button {
+    .power-icon {
+      color: #51cf66;
+      filter: drop-shadow(0 0 8px rgba(81, 207, 102, 0.6));
+    }
+
+    &:hover {
+      background: linear-gradient(135deg,
+          rgba(81, 207, 102, 0.25) 0%,
+          rgba(81, 207, 102, 0.15) 100%);
+      border-color: rgba(81, 207, 102, 0.5);
+    }
+  }
+
+  .cancel-button {
+    .power-icon {
+      color: #748ffc;
+      filter: drop-shadow(0 0 8px rgba(116, 143, 252, 0.6));
+    }
+
+    &:hover {
+      background: linear-gradient(135deg,
+          rgba(116, 143, 252, 0.25) 0%,
+          rgba(116, 143, 252, 0.15) 100%);
+      border-color: rgba(116, 143, 252, 0.5);
     }
   }
 }

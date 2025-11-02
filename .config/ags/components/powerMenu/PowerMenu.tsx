@@ -29,34 +29,33 @@ export default function PowerMenu(gdkmonitor: Gdk.Monitor) {
       keymode={Astal.Keymode.ON_DEMAND}
       visible={visible}
     >
-      <box
-      valign={Gtk.Align.CENTER}
-      orientation={Gtk.Orientation.VERTICAL}
-      spacing={10}>
-        <button
-          class="power-button"
-          cursor={Gdk.Cursor.new_from_name("pointer", null)}
-          onClicked={shutdown}
-        >
-          <label label="⏻ Power off" />
-        </button>
-        
-        <button
-          class="power-button"
-          cursor={Gdk.Cursor.new_from_name("pointer", null)}
-          onClicked={reboot}
-        >
-          <label label=" Restart" />
-        </button>
-        
-        <button
-          class="power-button"
-          cursor={Gdk.Cursor.new_from_name("pointer", null)}
-          onClicked={cancel}
-        >
-          <label label="Cancel" />
-        </button>
-      </box>
+      <box valign={Gtk.Align.CENTER} halign={Gtk.Align.CENTER}>      
+          <box class="power-menu-content" orientation={Gtk.Orientation.HORIZONTAL} spacing={16}>
+            <button
+              class="power-button shutdown-button glass-container"
+              cursor={Gdk.Cursor.new_from_name("pointer", null)}
+              onClicked={shutdown}
+            >
+              <label class="power-icon" label="" />
+            </button>
+            
+            <button
+              class="power-button restart-button glass-container"
+              cursor={Gdk.Cursor.new_from_name("pointer", null)}
+              onClicked={reboot}
+            >
+              <label class="power-icon" label="" />
+            </button>
+            
+            <button
+              class="power-button cancel-button glass-container"
+              cursor={Gdk.Cursor.new_from_name("pointer", null)}
+              onClicked={cancel}
+            >
+              <label class="power-icon" label="" />
+            </button>
+          </box>
+        </box>
     </window>
   );
 }
