@@ -5,8 +5,31 @@
   background-color: transparent;
   font-family: 'FiraCode Nerd Font Mono';
 
+  @keyframes fadeInScale {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
   .power-menu-content {
     padding: 20px;
+    animation: slideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.1s backwards;
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   .power-button {
@@ -21,6 +44,22 @@
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
+
+    // Button aniamtion
+    &:nth-child(1) { animation: buttonPop 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.15s backwards; }
+    &:nth-child(2) { animation: buttonPop 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.20s backwards; }
+    &:nth-child(3) { animation: buttonPop 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.25s backwards; }
+
+    @keyframes buttonPop {
+      from {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
 
     &::before {
       content: '';
