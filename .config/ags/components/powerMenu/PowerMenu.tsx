@@ -32,7 +32,7 @@ export default function PowerMenu(gdkmonitor: Gdk.Monitor) {
       <box valign={Gtk.Align.CENTER} halign={Gtk.Align.CENTER}>      
           <box class="power-menu-content" orientation={Gtk.Orientation.HORIZONTAL} spacing={16}>
             <button
-              class="power-button shutdown-button glass-container"
+              class="power-button shutdown-button glass-container animate"
               cursor={Gdk.Cursor.new_from_name("pointer", null)}
               onClicked={shutdown}
             >
@@ -40,7 +40,7 @@ export default function PowerMenu(gdkmonitor: Gdk.Monitor) {
             </button>
             
             <button
-              class="power-button restart-button glass-container"
+              class="power-button restart-button glass-container animate"
               cursor={Gdk.Cursor.new_from_name("pointer", null)}
               onClicked={reboot}
             >
@@ -48,7 +48,7 @@ export default function PowerMenu(gdkmonitor: Gdk.Monitor) {
             </button>
             
             <button
-              class="power-button cancel-button glass-container"
+              class="power-button cancel-button glass-container animate"
               cursor={Gdk.Cursor.new_from_name("pointer", null)}
               onClicked={cancel}
             >
