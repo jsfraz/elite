@@ -19,8 +19,6 @@
         rgba(255, 255, 255, 0.04) 100%);
     border: 1px solid rgba(255, 255, 255, 0.12);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    overflow: hidden;
 
     &.animate {
       &:nth-child(1) { animation: buttonPop 0.15s cubic-bezier(0.4, 0, 0.2, 1) 0.15s backwards; }
@@ -39,20 +37,6 @@
       }
     }
 
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg,
-          transparent,
-          rgba(255, 255, 255, 0.1),
-          transparent);
-      transition: left 0.33s ease-in-out;
-    }
-
     .power-icon {
       font-size: 32px;
       text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
@@ -67,10 +51,6 @@
       box-shadow:
         0 6px 20px rgba(0, 0, 0, 0.4),
         inset 0 1px 0 rgba(255, 255, 255, 0.3);
-
-      &::before {
-        left: 100%;
-      }
 
       .power-icon {
         transform: scale(1.05);
