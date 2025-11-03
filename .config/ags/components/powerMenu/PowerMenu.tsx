@@ -19,6 +19,7 @@ function cancel() {
 
 export default function PowerMenu(gdkmonitor: Gdk.Monitor) {
   const [visible, _setVisible] = createState(false);
+  const [animate, setAnimate] = createState(false);
 
   return (
     <window
@@ -33,6 +34,10 @@ export default function PowerMenu(gdkmonitor: Gdk.Monitor) {
       onShow={(self) => {
         self.grab_focus();
         // TODO move cursor to center of window
+        setAnimate(true)
+      }}
+      onHide={() => {
+        setAnimate(false);
       }}
     >
       <Gtk.EventControllerKey
@@ -50,7 +55,7 @@ export default function PowerMenu(gdkmonitor: Gdk.Monitor) {
       <box valign={Gtk.Align.CENTER} halign={Gtk.Align.CENTER}>
         <box class="power-menu-content" orientation={Gtk.Orientation.HORIZONTAL} spacing={16}>
           <button
-            class="power-button shutdown-button glass-container animate"
+            class={animate((val) => `power-button shutdown-button glass-container ${val ? "animate" : ""}`)}
             cursor={Gdk.Cursor.new_from_name("pointer", null)}
             onClicked={shutdown}
           >
@@ -58,7 +63,7 @@ export default function PowerMenu(gdkmonitor: Gdk.Monitor) {
           </button>
 
           <button
-            class="power-button restart-button glass-container animate"
+            class={animate((val) => `power-button restart-button glass-container ${val ? "animate" : ""}`)}
             cursor={Gdk.Cursor.new_from_name("pointer", null)}
             onClicked={reboot}
           >
@@ -66,7 +71,7 @@ export default function PowerMenu(gdkmonitor: Gdk.Monitor) {
           </button>
 
           <button
-            class="power-button cancel-button glass-container animate"
+            class={animate((val) => `power-button cancel-button glass-container ${val ? "animate" : ""}`)}
             cursor={Gdk.Cursor.new_from_name("pointer", null)}
             onClicked={cancel}
           >
