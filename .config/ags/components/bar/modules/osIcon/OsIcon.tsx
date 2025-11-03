@@ -3,8 +3,9 @@ import { Gdk } from "ags/gtk4"
 import { execAsync } from "ags/process";
 
 function onClicked(): void {
-  execAsync(["scripts/cursor_middle.sh", "-plusX", "107"]);
-  app.toggle_window("power-menu");
+  execAsync(["scripts/cursor_middle.sh", "-plusX", "107"]).then(() => {
+    app.toggle_window("power-menu");
+  });
 }
 
 export default function OsIcon() {
