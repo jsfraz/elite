@@ -19,7 +19,8 @@ function cancel() {
 
 export default function PowerMenu(gdkmonitor: Gdk.Monitor) {
   const [visible, _setVisible] = createState(false);
-  const [animate, setAnimate] = createState(false);
+  const [animate, _setAnimate] = createState(false);
+  const [ignoreCallbacks, _setIgnoreCallbacks] = createState(false);
 
   return (
     <window
@@ -31,25 +32,29 @@ export default function PowerMenu(gdkmonitor: Gdk.Monitor) {
       layer={Astal.Layer.OVERLAY}
       keymode={Astal.Keymode.ON_DEMAND}
       visible={visible}
-      onShow={(self) => {
-        self.grab_focus();
-        // TODO move cursor to center of window
-        setAnimate(true)
+      onShow={(_) => {
+        _setAnimate(true)
+        _setIgnoreCallbacks(true);
+        setTimeout(() => {
+          _setIgnoreCallbacks(false);
+        }, 250);
       }}
       onHide={() => {
-        setAnimate(false);
+        _setAnimate(false);
       }}
     >
       <Gtk.EventControllerKey
         onKeyPressed={(_, key) => {
           if (key === Gdk.KEY_Escape) {
+            _setIgnoreCallbacks(true);
             cancel();
           }
         }}
       />
       <Gtk.EventControllerFocus
         onLeave={(_) => {
-          // cancel();
+          if (ignoreCallbacks.get()) return;
+          cancel();
         }}
       />
       <box valign={Gtk.Align.CENTER} halign={Gtk.Align.CENTER}>
@@ -73,7 +78,10 @@ export default function PowerMenu(gdkmonitor: Gdk.Monitor) {
           <button
             class={animate((val) => `power-button cancel-button glass-container ${val ? "animate" : ""}`)}
             cursor={Gdk.Cursor.new_from_name("pointer", null)}
-            onClicked={cancel}
+            onClicked={() => {
+              _setIgnoreCallbacks(true);
+              cancel();
+            }}
           >
             <label class="power-icon" label="" />
           </button>

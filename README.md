@@ -19,6 +19,7 @@ Wallpapers come from [gnome-backgrounds package](https://zebreus.github.io/all-g
 - [libnotify](https://gitlab.gnome.org/GNOME/libnotify)
 - [mako](https://github.com/emersion/mako)
 - [jq](https://github.com/jqlang/jq)
+- [ydotool](https://github.com/ReimuNotMoe/ydotool) (enable and start using `systemctl --user`)
 
 ## swayfx
 

@@ -15,7 +15,6 @@ wal -i $BACKGROUND_FILE --saturate 0.5 && ln -s ~/.cache/wal ~/.config/ags/wal
 # ags
 ASTAL_BATTERY_DIR=$(dirname $(find /usr -name "*AstalBattery*.typelib" 2>/dev/null))
 export GI_TYPELIB_PATH=$ASTAL_BATTERY_DIR:$GI_TYPELIB_PATH
-
 killall -q gjs
 while pgrep -x gjs >/dev/null; do sleep 0.1; done
 ags run &
