@@ -17,12 +17,6 @@ function cancel() {
   app.toggle_window("power-menu")
 }
 
-function onKeyPressed(source: Gtk.EventControllerKey, key1: number, key2: number, modifier: Gdk.ModifierType) {
-  if (key1 === Gdk.KEY_Escape) {
-    cancel();
-  }
-}
-
 export default function PowerMenu(gdkmonitor: Gdk.Monitor) {
   const [visible, _setVisible] = createState(false);
 
@@ -36,36 +30,49 @@ export default function PowerMenu(gdkmonitor: Gdk.Monitor) {
       layer={Astal.Layer.OVERLAY}
       keymode={Astal.Keymode.ON_DEMAND}
       visible={visible}
+      onShow={(self) => {
+        self.grab_focus();
+        // TODO move cursor to center of window
+      }}
     >
+      <Gtk.EventControllerKey
+        onKeyPressed={(_, key) => {
+          if (key === Gdk.KEY_Escape) {
+            cancel();
+          }
+        }}
+      />
+      <Gtk.EventControllerFocus
+        onLeave={(_) => {
+          // cancel();
+        }}
+      />
       <box valign={Gtk.Align.CENTER} halign={Gtk.Align.CENTER}>
-        <Gtk.EventControllerKey
-          onKeyPressed={onKeyPressed}
-        />
         <box class="power-menu-content" orientation={Gtk.Orientation.HORIZONTAL} spacing={16}>
-            <button
-              class="power-button shutdown-button glass-container animate"
-              cursor={Gdk.Cursor.new_from_name("pointer", null)}
-              onClicked={shutdown}
-            >
-              <label class="power-icon" label="" />
-            </button>
+          <button
+            class="power-button shutdown-button glass-container animate"
+            cursor={Gdk.Cursor.new_from_name("pointer", null)}
+            onClicked={shutdown}
+          >
+            <label class="power-icon" label="" />
+          </button>
 
-            <button
-              class="power-button restart-button glass-container animate"
-              cursor={Gdk.Cursor.new_from_name("pointer", null)}
-              onClicked={reboot}
-            >
-              <label class="power-icon" label="" />
-            </button>
+          <button
+            class="power-button restart-button glass-container animate"
+            cursor={Gdk.Cursor.new_from_name("pointer", null)}
+            onClicked={reboot}
+          >
+            <label class="power-icon" label="" />
+          </button>
 
-            <button
-              class="power-button cancel-button glass-container animate"
-              cursor={Gdk.Cursor.new_from_name("pointer", null)}
-              onClicked={cancel}
-            >
-              <label class="power-icon" label="" />
-            </button>
-          </box>
+          <button
+            class="power-button cancel-button glass-container animate"
+            cursor={Gdk.Cursor.new_from_name("pointer", null)}
+            onClicked={cancel}
+          >
+            <label class="power-icon" label="" />
+          </button>
+        </box>
       </box>
     </window>
   );
