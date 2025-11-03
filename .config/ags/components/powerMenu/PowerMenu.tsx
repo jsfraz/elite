@@ -37,7 +37,7 @@ export default function PowerMenu(gdkmonitor: Gdk.Monitor) {
         _setIgnoreCallbacks(true);
         setTimeout(() => {
           _setIgnoreCallbacks(false);
-        }, 250);
+        }, 50);
       }}
       onHide={() => {
         _setAnimate(false);

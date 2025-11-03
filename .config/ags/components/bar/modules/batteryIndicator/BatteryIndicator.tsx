@@ -1,16 +1,16 @@
 import { Gdk } from "ags/gtk4";
 import Battery from "gi://AstalBattery";
-import { createBinding } from "gnim";
+import { createBinding, createState } from "gnim";
 import { notify } from "../../../../utils/dialog";
 
 const battery = Battery.get_default();
 // Watch for low battery and send notification
-let hasShownLowBatteryWarning = false;
-let hasShownFullyChargedNotification = false;
+let [hasShownLowBatteryWarning, _setHasShownLowBatteryWarning] = createState(false);
+let [hasShownFullyChargedNotification, _setHasShownFullyChargedNotification] = createState(false);
 
 battery.connect("notify::percentage", () => {
     const percentage = battery.percentage * 100;
-    
+
     if (percentage <= 15 && !battery.charging && !hasShownLowBatteryWarning) {
         notify({
             summary: "Low Battery",
@@ -18,12 +18,12 @@ battery.connect("notify::percentage", () => {
             iconName: "battery-low",
             urgency: "critical"
         });
-        hasShownLowBatteryWarning = true;
+        _setHasShownLowBatteryWarning(true);
     }
-    
+
     // Reset flag if battery is above 20%
     if (percentage > 20) {
-        hasShownLowBatteryWarning = false;
+        _setHasShownLowBatteryWarning(false);
     }
 
     // Notify when fully charged
@@ -34,12 +34,12 @@ battery.connect("notify::percentage", () => {
             iconName: "battery-full-charged",
             urgency: "normal"
         });
-        hasShownFullyChargedNotification = true;
+        _setHasShownFullyChargedNotification(true);
     }
 
     // Reset flag when battery drops below 100% or stops charging
     if (percentage < 100 || !battery.charging) {
-        hasShownFullyChargedNotification = false;
+        _setHasShownFullyChargedNotification(false);
     }
 });
 

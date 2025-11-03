@@ -18,12 +18,12 @@
         rgba(255, 255, 255, 0.08) 0%,
         rgba(255, 255, 255, 0.04) 100%);
     border: 1px solid rgba(255, 255, 255, 0.12);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 
     &.animate {
-      &:nth-child(1) { animation: buttonPop 0.15s cubic-bezier(0.4, 0, 0.2, 1) 0.15s backwards; }
-      &:nth-child(2) { animation: buttonPop 0.15s cubic-bezier(0.4, 0, 0.2, 1) 0.20s backwards; }
-      &:nth-child(3) { animation: buttonPop 0.15s cubic-bezier(0.4, 0, 0.2, 1) 0.25s backwards; }
+      &:nth-child(1) { animation: buttonPop 0.1s cubic-bezier(0.4, 0, 0.2, 1) 0.15s backwards; }
+      &:nth-child(2) { animation: buttonPop 0.1s cubic-bezier(0.4, 0, 0.2, 1) 0.20s backwards; }
+      &:nth-child(3) { animation: buttonPop 0.1s cubic-bezier(0.4, 0, 0.2, 1) 0.25s backwards; }
     }
 
     @keyframes buttonPop {
@@ -54,7 +54,7 @@
 
       .power-icon {
         transform: scale(1.05);
-        transition: transform 0.33s ease-in-out;
+        transition: transform 0.25s ease-in-out;
       }
     }
 
