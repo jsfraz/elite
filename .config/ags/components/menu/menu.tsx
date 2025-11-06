@@ -1,7 +1,6 @@
 import { Accessor, createState, For } from "ags";
 import { Astal, Gdk, Gtk } from "ags/gtk4"
 import app from "ags/gtk4/app";
-import { execAsync } from "ags/process";
 
 function cancel() {
   app.toggle_window("main-menu")
@@ -13,48 +12,11 @@ export interface MenuOption {
   isSeparator: boolean;
 }
 
-export default function MainMenu(gdkmonitor: Gdk.Monitor) {
+export default function MainMenu(gdkmonitor: Gdk.Monitor, menuOptions: Array<MenuOption>) {
   const [visible, _setVisible] = createState(false);
   const [animate, _setAnimate] = createState(false);
   const { TOP, LEFT } = Astal.WindowAnchor
-
-  /*
-  const OPTIONS = new Accessor<Array<string>>(() => [
-    "System Monitor",
-    "Settings",
-    "Power",
-  ]);
-  */
-
-  const OPTIONS = new Accessor<Array<MenuOption>>(() => [
-    {
-      label: "System Monitor",
-      action: () => {
-        execAsync(["gnome-system-monitor"]);
-      },
-      isSeparator: false,
-    },
-    {
-      label: "Settings",
-      action: () => {
-
-      },
-      isSeparator: false,
-    },
-    {
-      label: "",
-      action: () => { },
-      isSeparator: true,
-    },
-    {
-      label: "Power",
-      action: () => {
-        app.toggle_window("power-menu");
-        execAsync(["scripts/cursor_middle.sh", "-plusX", "107"]);
-      },
-      isSeparator: false,
-    },
-  ]);
+  const OPTIONS = new Accessor<Array<MenuOption>>(() => menuOptions);
 
   return (
     <window
