@@ -82,11 +82,11 @@ export default function MainMenu(gdkmonitor: Gdk.Monitor) {
           cancel();
         }}
       />
-      <box class="power-menu-content" orientation={Gtk.Orientation.VERTICAL} spacing={1}>
+      <box class="menu-content" orientation={Gtk.Orientation.VERTICAL} spacing={1}>
         <For each={OPTIONS}>
           {(item, _: Accessor<number>) => (
             !item.isSeparator ? (<button
-              class={animate((val) => `power-button vpadding1 transparentThenHoverFg ${val ? "animate" : ""}`)}
+              class={animate((val) => `menu-button vpadding1 transparentThenHoverFg ${val ? "animate" : ""}`)}
               hexpand={true}
               halign={Gtk.Align.FILL}
               onClicked={() => {
@@ -102,7 +102,7 @@ export default function MainMenu(gdkmonitor: Gdk.Monitor) {
               />
             </button>) : (
               <Gtk.Separator
-              class={animate((val) => `power-button ${val ? "animate" : ""}`)}
+              class={animate((val) => `menu-button ${val ? "animate" : ""}`)}
               />)
           )}
         </For>

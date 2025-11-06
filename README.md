@@ -20,6 +20,7 @@ Wallpapers come from [gnome-backgrounds package](https://zebreus.github.io/all-g
 - [mako](https://github.com/emersion/mako)
 - [jq](https://github.com/jqlang/jq)
 - [ydotool](https://github.com/ReimuNotMoe/ydotool)
+- [gnome-system-monitor](https://gitlab.gnome.org/GNOME/gnome-system-monitor)
 
 ## swayfx
 

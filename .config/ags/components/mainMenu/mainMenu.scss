@@ -15,17 +15,17 @@
     padding-bottom: 0px;
   }
 
-  .power-menu-content {
+  .menu-content {
     padding: 1px;
   }
 
-  .power-button {
+  .menu-button {
     font-size: 12px;
     font-weight: normal;
     transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 
     &.animate {
-      $button-count: 4;
+      $button-count: 10;  // Not actual count
       $animation-delay-step: 0.05s;
 
       @for $i from 1 through $button-count {
