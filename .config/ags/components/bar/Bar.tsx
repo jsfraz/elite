@@ -26,7 +26,7 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
       >
         <box
           $type="start"
-          spacing={4}
+          spacing={2}
           homogeneous={false}
           orientation={Gtk.Orientation.VERTICAL}
         >
@@ -34,7 +34,7 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
         </box>
         <box
           $type="end"
-          spacing={4}
+          spacing={2}
           homogeneous={false}
           orientation={Gtk.Orientation.VERTICAL}
           class={"bottomPadding"}
