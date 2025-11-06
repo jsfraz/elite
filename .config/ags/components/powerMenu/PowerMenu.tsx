@@ -32,8 +32,9 @@ export default function PowerMenu(gdkmonitor: Gdk.Monitor) {
       layer={Astal.Layer.OVERLAY}
       keymode={Astal.Keymode.ON_DEMAND}
       visible={visible}
-      onShow={(_) => {
-        _setAnimate(true)
+      onShow={(self) => {
+        self.grab_focus();
+        _setAnimate(true);
         _setIgnoreCallbacks(true);
         setTimeout(() => {
           _setIgnoreCallbacks(false);
@@ -51,7 +52,7 @@ export default function PowerMenu(gdkmonitor: Gdk.Monitor) {
           }
         }}
       />
-      <Gtk.EventControllerFocus
+      <Gtk.EventControllerMotion
         onLeave={(_) => {
           if (ignoreCallbacks.get()) return;
           cancel();

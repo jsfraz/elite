@@ -57,7 +57,7 @@ export default function Clock() {
         <button
             class="Clock transparentThenHoverFg"
             cursor={Gdk.Cursor.new_from_name("pointer", null)}
-            tooltipText={getCurrentDateString()}
+            // tooltipText={getCurrentDateString()}
         >
             <TimeDisplay />
         </button>
