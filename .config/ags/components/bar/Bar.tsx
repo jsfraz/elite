@@ -29,6 +29,7 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
           spacing={2}
           homogeneous={false}
           orientation={Gtk.Orientation.VERTICAL}
+          class={"boxAnimation"}
         >
           <OsIcon />
         </box>
@@ -37,7 +38,7 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
           spacing={2}
           homogeneous={false}
           orientation={Gtk.Orientation.VERTICAL}
-          class={"bottomPadding"}
+          class={"bottomPadding boxAnimation"}
         >
           <RunCat />
           <Gtk.Separator class="short-separator" />
