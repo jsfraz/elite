@@ -13,14 +13,16 @@ const SUBMENU_MARGIN_TOP = 10;
 const MENU_OPTIONS: Array<MenuOption> = [
   new MenuOption({
     label: "System Monitor",
+    icon: "󰓅",
     action: () => {
       execAsync(["gnome-system-monitor"])
     }
   }),
   new MenuOption({
     label: "Settings",
+    icon: "",
     submenu: [
-      new MenuOption({ label: "Change background" })
+      new MenuOption({ label: "Change background", icon: "󰋩" })
     ],
     parentWindowName: "main-menu"
   }),
@@ -29,6 +31,7 @@ const MENU_OPTIONS: Array<MenuOption> = [
   }),
   new MenuOption({
     label: "Power",
+    icon: "",
     action: () => {
       app.toggle_window("power-menu");
       execAsync(["scripts/cursor_middle.sh", "-plusX", "107"]);
@@ -40,7 +43,7 @@ const MENU_OPTIONS: Array<MenuOption> = [
 function setupSubmenus(submenuOptions: Array<MenuOption>, gdkmonitor: Gdk.Monitor): void {
   submenuOptions.forEach((option, index) => {
     if (option.submenu) {
-      const ENTRY_HEIGHT = 27;
+      const ENTRY_HEIGHT = 28;
       const SEPARATOR_HEIGHT = 1;
       // Calculate how many items are before this submenu
       let plusMargin = 0;

@@ -114,7 +114,7 @@ export default function Menu(gdkmonitor: Gdk.Monitor, menuOptions: Array<MenuOpt
               <box spacing={8}>
                 <label
                   class="vpadding0"
-                  label={item.label ? item.label : ""}
+                  label={(item.icon ? item.icon + " " : "") + (item.label ? item.label : "")}
                   halign={Gtk.Align.START}
                   hexpand={true}
                 />

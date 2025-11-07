@@ -1,5 +1,6 @@
 export class MenuOption {
   label: string | undefined;
+  icon: string | undefined;
   parentWindowName: string | undefined;
   action: (() => void) | undefined;
   isSeparator: boolean;
@@ -8,12 +9,14 @@ export class MenuOption {
   constructor(
     {
       label = undefined,
+      icon = undefined,
       parentWindowName = undefined,
       action = undefined,
       isSeparator = false,
       submenu = undefined
     }: {
       label?: string | undefined;
+      icon?: string | undefined;
       parentWindowName?: string | undefined;
       action?: (() => void) | undefined;
       isSeparator?: boolean;
@@ -21,6 +24,7 @@ export class MenuOption {
     } = {}
   ) {
     this.label = label;
+    this.icon = icon;
     this.parentWindowName = parentWindowName;
     this.action = action;
     this.isSeparator = isSeparator;
