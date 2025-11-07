@@ -1,0 +1,16 @@
+[config]
+version_check = false
+caching = false
+
+# Changing the syntax
+# Expr is for keywords like {{ <keyword> }}
+expr_prefix = "{{"
+expr_postfix = "}}"
+
+# Block is for stuff like for loops etc.
+block_prefix = "<*"
+block_postfix = "*>"
+
+[templates.ags]
+input_path = "~/.config/matugen/templates/ags.scss"
+output_path = "~/.config/ags/colors.scss"

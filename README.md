@@ -13,7 +13,7 @@ Wallpapers come from [gnome-backgrounds package](https://zebreus.github.io/all-g
 - [ags](https://github.com/Aylur/ags)
 - [rofi-wayland](https://github.com/davatorium/rofi)
 - [grimshot](https://sr.ht/~emersion/grim/) ([sway-contrib package](https://github.com/OctopusET/sway-contrib))
-- [pywal](https://github.com/dylanaraps/pywal)
+- [matugen](https://github.com/InioX/matugen)
 - [FiraCode Nerd Font](https://www.nerdfonts.com)
 - [AstalBattery](https://aylur.github.io/astal/guide/libraries/battery) (run `ags types` after installing)
 - [libnotify](https://gitlab.gnome.org/GNOME/libnotify)
@@ -30,13 +30,23 @@ Wallpapers come from [gnome-backgrounds package](https://zebreus.github.io/all-g
 ln -sf $PWD/.config/sway ~/.config/sway
 ```
 
+## matugen
+
+`matugen` is used to generate SCSS files for other programs based on the current wallpaper.
+
+### Linking config folder
+
+```bash
+ln -sf $PWD/.config/matugen ~/.config/matugen
+```
+
 ## ags
 
 > [!NOTE]
 > If you run into this error: `can not initialize layer shell on window: layer shell not supported
 tip: running from an xwayland terminal can cause this, for example VsCode` you need to run this in a native wayland terminal like `alacritty` or `foot`.
 
-### Linking config folder
+### Linking config folders
 
 ```bash
 ln -sf $PWD/.config/ags ~/.config/ags
@@ -44,10 +54,13 @@ ln -sf $PWD/.config/ags ~/.config/ags
 
 ### Generating SCSS manully
 
-To run `ags`, you need to generate SCSS using `pwal` and symlink it to `ags` folder:
+To run `ags`, you need to generate SCSS using `matugen`:
 
 ```bash
-wal -i $BACKGROUND_FILE --saturate 0.5 && ln -s ~/.cache/wal ~/.config/ags/wal
+matugen image <image_path>
+# or using this rice background config
+BACKGROUND_FILE=$(jq -r '.background' ~/.config/sway/config.json)
+matugen image $BACKGROUND_FILE
 ```
 
 ### Starting manually

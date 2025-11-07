@@ -7,10 +7,12 @@ fi
 
 # Background
 BACKGROUND_FILE=$(jq -r '.background' ~/.config/sway/config.json)
-swaymsg output "*" bg $BACKGROUND_FILE fill
+# Expand ~ to home directory
+BACKGROUND_FILE_EXPANDED="${BACKGROUND_FILE/#\~/$HOME}"
+swaymsg output "*" bg $BACKGROUND_FILE_EXPANDED fill
 
-# pywal
-wal -i $BACKGROUND_FILE --saturate 0.5 && ln -s ~/.cache/wal ~/.config/ags/wal
+# matugen
+matugen image $BACKGROUND_FILE_EXPANDED -m light
 
 # ags
 ASTAL_BATTERY_DIR=$(dirname $(find /usr -name "*AstalBattery*.typelib" 2>/dev/null))
