@@ -1,6 +1,5 @@
 import app from "ags/gtk4/app"
-import { Gdk, Gtk } from "ags/gtk4"
-import { execAsync } from "ags/process";
+import { Gdk } from "ags/gtk4"
 
 function onClicked(): void {
   app.toggle_window("main-menu");

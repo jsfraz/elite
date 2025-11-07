@@ -13,6 +13,26 @@ export default function Menu(gdkmonitor: Gdk.Monitor, menuOptions: Array<MenuOpt
   const [visible, _setVisible] = createState(false);
   const [animate, _setAnimate] = createState(false);
   const [parentWindow, _setParentWindow] = createState<Gtk.Window | null>(null);
+  const [activeSubmenu, _setActiveSubmenu] = createState<string | null>(null);
+
+  function closeAllSubmenus() {
+    let subMenus = OPTIONS.get().filter((item) => item.submenu);
+    subMenus.forEach((item) => {
+      let window = app.get_window(`submenu-${item.getHash()}`);
+      if (window && window.get_visible()) {
+        window.set_visible(false);
+      }
+    });
+    _setActiveSubmenu(null);
+  }
+
+  function isAnySubmenuOpen() {
+    let subMenus = OPTIONS.get().filter((item) => item.submenu);
+    return subMenus.some((item) => {
+      let window = app.get_window(`submenu-${item.getHash()}`);
+      return window ? window.get_visible() : false;
+    });
+  }
 
   return (
     <window
@@ -41,11 +61,13 @@ export default function Menu(gdkmonitor: Gdk.Monitor, menuOptions: Array<MenuOpt
       }}
       onHide={() => {
         _setAnimate(false);
+        closeAllSubmenus();
       }}
     >
       <Gtk.EventControllerMotion
         onLeave={(_) => {
-          // cancel();
+          if (isAnySubmenuOpen()) return;
+          cancel();
         }}
       />
       <box class="menu-content" orientation={Gtk.Orientation.VERTICAL} spacing={1}>
@@ -56,7 +78,18 @@ export default function Menu(gdkmonitor: Gdk.Monitor, menuOptions: Array<MenuOpt
               hexpand={true}
               halign={Gtk.Align.FILL}
               onClicked={() => {
-                if (item.submenu) return;
+                if (item.submenu) {
+                  const submenuName = `submenu-${item.getHash()}`;
+                  if (activeSubmenu.get() === submenuName) {
+                    app.toggle_window(submenuName);
+                    _setActiveSubmenu(null);
+                  } else {
+                    closeAllSubmenus();
+                    app.toggle_window(submenuName);
+                    _setActiveSubmenu(submenuName);
+                  }
+                  return;
+                }
                 if (item.action) item.action();
                 cancel();
               }}
@@ -64,21 +97,35 @@ export default function Menu(gdkmonitor: Gdk.Monitor, menuOptions: Array<MenuOpt
               <Gtk.EventControllerMotion
                 onEnter={(_) => {
                   if (item.submenu) {
-                    app.toggle_window(`submenu-${item.getHash()}`);
-                  }
-                }}
-                onLeave={(_) => {
-                  if (item.submenu) {
-                    app.toggle_window(`submenu-${item.getHash()}`);
+                    const submenuName = `submenu-${item.getHash()}`;
+                    if (activeSubmenu.get() !== submenuName) {
+                      closeAllSubmenus();
+                      app.toggle_window(submenuName);
+                      _setActiveSubmenu(submenuName);
+                    }
+                  } else {
+                    // Close any open submenu when hovering over a non-submenu item
+                    if (activeSubmenu.get() !== null) {
+                      closeAllSubmenus();
+                    }
                   }
                 }}
               />
-              <label
-                class="vpadding0"
-                label={item.label ? item.label : ""}
-                halign={Gtk.Align.START}
-                hexpand={true}
-              />
+              <box spacing={8}>
+                <label
+                  class="vpadding0"
+                  label={item.label ? item.label : ""}
+                  halign={Gtk.Align.START}
+                  hexpand={true}
+                />
+                {item.submenu && (
+                  <label
+                    class="vpadding0"
+                    label=""
+                    halign={Gtk.Align.END}
+                  />
+                )}
+              </box>
             </button>) : (
               <Gtk.Separator
                 class={animate((val) => `menu-button ${val ? "animate" : ""}`)}
