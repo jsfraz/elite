@@ -6,11 +6,11 @@ import { execAsync } from "ags/process";
 // https://aylur.github.io/ags/guide/first-widgets.html#widget-signal-handlers
 
 function shutdown() {
-  execAsync(["systemctl", "poweroff"]);
+  execAsync(["systemctl", "poweroff"]).catch(console.error);
 }
 
 function reboot() {
-  execAsync(["systemctl", "reboot"]);
+  execAsync(["systemctl", "reboot"]).catch(console.error);
 }
 
 function cancel() {

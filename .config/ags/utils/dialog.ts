@@ -9,6 +9,7 @@ interface NotifyOptions {
 
 // Send a desktop notification using notify-send
 export function notify(options: NotifyOptions): void {
+    // TODO Use Astal lib
     execAsync([
         "notify-send",
         options.summary,

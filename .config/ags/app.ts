@@ -15,14 +15,20 @@ const MENU_OPTIONS: Array<MenuOption> = [
     label: "System Monitor",
     icon: "󰓅",
     action: () => {
-      execAsync(["gnome-system-monitor"])
+      execAsync(["gnome-system-monitor"]).catch(console.error);
     }
   }),
   new MenuOption({
     label: "Settings",
     icon: "",
     submenu: [
-      new MenuOption({ label: "Change background", icon: "󰋩" })
+      new MenuOption({
+        label: "Change background",
+        icon: "󰋩",
+        action() {
+          execAsync(["scripts/set_background.sh"]).catch(console.error);
+        },
+      })
     ],
     parentWindowName: "main-menu"
   }),
@@ -33,8 +39,9 @@ const MENU_OPTIONS: Array<MenuOption> = [
     label: "Power",
     icon: "",
     action: () => {
-      app.toggle_window("power-menu");
-      execAsync(["scripts/cursor_middle.sh", "-plusX", "107"]);
+      execAsync(["scripts/cursor_middle.sh", "-plusX", "107"]).then(() => {
+        app.toggle_window("power-menu");
+      }).catch(console.error);
     }
   }),
 ];
