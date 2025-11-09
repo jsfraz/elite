@@ -5,16 +5,16 @@ set $left h
 set $down j
 set $up k
 set $right l
-# Your preferred terminal emulator
+# Terminal emulator
 set $term foot
-# Your preferred application launcher
+# Application launcher
 set $menu rofi -show drun
 
 ### Swayfx
 corner_radius 15
 
+# ags blur
 layer_effects "gtk4-layer-shell" {
-    blur_radius 3;
     blur enable;
     blur_ignore_transparent enable;
 }
@@ -24,9 +24,11 @@ gaps inner 10
 smart_borders enable
 smart_gaps disable
 
-# Wallpaper
-# Use command:
-# swaymsg output "*" bg ~/.config/sway/backgrounds/LightWaves-b4b59bda185758ebaa2735e4e9fc78a2f7277c64.webp fill
+### Floating windows
+for_window [app_id="zenity"] floating enable; 
+
+### Autostart
+exec_always ~/.config/sway/scripts/exec_always.sh
 
 ### Idle configuration
 #
@@ -204,5 +206,3 @@ bindsym $mod+r mode "resize"
     # Screenshot with grim
     bindsym Print exec grim -g "$(slurp)" -t png - | wl-copy -t image/png
 
-# Autostart
-exec ~/.config/sway/scripts/exec.sh

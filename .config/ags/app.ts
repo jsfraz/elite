@@ -26,7 +26,8 @@ const MENU_OPTIONS: Array<MenuOption> = [
         label: "Change background",
         icon: "󰋩",
         action() {
-          execAsync(["scripts/set_background.sh"]).catch(console.error);
+          execAsync(["scripts/set_background.sh"]).then(() => {
+          }).catch(console.error);
         },
       })
     ],

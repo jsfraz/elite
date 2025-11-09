@@ -31,4 +31,9 @@ swaymsg output "*" bg $BACKGROUND_FILE_EXPANDED fill
 # pywal
 wal -i $BACKGROUND_FILE_EXPANDED --saturate 0.5 -nste
 
-# TODO Reload GTK
+# ags
+ASTAL_BATTERY_DIR=$(dirname $(find /usr -name "*AstalBattery*.typelib" 2>/dev/null))
+export GI_TYPELIB_PATH=$ASTAL_BATTERY_DIR:$GI_TYPELIB_PATH
+killall -q gjs
+while pgrep -x gjs >/dev/null; do sleep 0.1; done
+ags run &
