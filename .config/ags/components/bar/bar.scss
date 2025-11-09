@@ -1,20 +1,11 @@
-/*
-// https://gitlab.gnome.org/GNOME/gtk/-/blob/gtk-3-24/gtk/theme/Adwaita/_colors-public.scss
-$fg-color: #{"@theme_fg_color"};
-$bg-color: #{"@theme_bg_color"};
-*/
-
 // Import specific module styles
 @use "modules/osIcon/osIcon.scss";
 @use "modules/clock/clock.scss";
 @use "modules/batteryIndicator/batteryIndicator.scss";
-// Generated color palette from pywal
-@use "wal/colors.scss";
 
 window.Bar {
   font-family: 'FiraCode Nerd Font Mono', monospace;
   background: transparent;
-  color: colors.$foreground;
   font-weight: 500;
   margin: 10px 0px 10px 10px;
 

@@ -1,6 +1,6 @@
 import { Gdk, Gtk } from "ags/gtk4"
 import { With } from "gnim";
-import { currentTimeString, getCurrentDateString } from "../../../../utils/time";
+import { currentTimeString } from "../../../../utils/time";
 
 // https://github.com/Youwes09/Ateon/blob/f07f4e6dea111afa8174a92a6035a691cd88d3c3/ags/utils/time.ts
 

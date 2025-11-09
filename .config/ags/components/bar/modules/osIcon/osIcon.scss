@@ -1,12 +1,8 @@
-// Generated color palette from pywal
-@use "wal/colors.scss";
-
 button.OsIcon {
     border-radius: 20px;
 
     image {
         filter: brightness(0) saturate(100%) invert(1);
         opacity: 1;
-        color: colors.$foreground;
     }
 }

@@ -14,8 +14,10 @@ BACKGROUND_FILE_EXPANDED="${BACKGROUND_FILE/#\~/$HOME}"
 # Set background image
 swaymsg output "*" bg $BACKGROUND_FILE_EXPANDED fill
 
-# matugen
-matugen image $BACKGROUND_FILE_EXPANDED -m light
+# matugen (if no ags SCSS exists)
+if [ ! -f ~/.config/ags/colors.scss ]; then
+    matugen image $BACKGROUND_FILE_EXPANDED -m light
+fi
 
 # ags
 ASTAL_BATTERY_DIR=$(dirname $(find /usr -name "*AstalBattery*.typelib" 2>/dev/null))

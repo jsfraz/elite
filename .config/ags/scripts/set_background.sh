@@ -27,9 +27,8 @@ fi
 # Set background image
 swaymsg output "*" bg $BACKGROUND_FILE_EXPANDED fill
 
-# TODO matugen
-# pywal
-wal -i $BACKGROUND_FILE_EXPANDED --saturate 0.5 -nste
+# matugen
+matugen image $BACKGROUND_FILE_EXPANDED -m light
 
 # ags
 ASTAL_BATTERY_DIR=$(dirname $(find /usr -name "*AstalBattery*.typelib" 2>/dev/null))

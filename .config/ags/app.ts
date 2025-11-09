@@ -19,8 +19,8 @@ const MENU_OPTIONS: Array<MenuOption> = [
     }
   }),
   new MenuOption({
-    label: "Settings",
-    icon: "",
+    label: "Appearance",
+    icon: "󰏘",
     submenu: [
       new MenuOption({
         label: "Change background",

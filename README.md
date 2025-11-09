@@ -4,8 +4,6 @@ Rice for my shit Elitebook 840.
 
 # TODO screenshot
 
-Wallpapers come from [gnome-backgrounds package](https://zebreus.github.io/all-gnome-backgrounds/wallpaper/70140479abcf51913eca764c686068c2e643a685).
-
 ## Dependencies
 
 - git
@@ -30,15 +28,17 @@ Wallpapers come from [gnome-backgrounds package](https://zebreus.github.io/all-g
 ln -sf $PWD/.config/sway ~/.config/sway
 ```
 
-## matugen
+### Installing backgrounds
 
-`matugen` is used to generate SCSS files for other programs based on the current wallpaper.
-
-### Linking config folder
+Download all the [GOOD](https://zebreus.github.io/all-gnome-backgrounds/) backgrounds from [all-gnome-backgrounds](https://github.com/zebreus/all-gnome-backgrounds) using this command:
 
 ```bash
-ln -sf $PWD/.config/matugen ~/.config/matugen
+./install_all_gnome_backgrounds.sh
 ```
+
+## matugen
+
+`matugen` is used to generate SCSS files for other programs based on the current background image.
 
 ## ags
 
@@ -57,10 +57,19 @@ ln -sf $PWD/.config/ags ~/.config/ags
 To run `ags`, you need to generate SCSS using `matugen`:
 
 ```bash
-matugen image <image_path>
+matugen image <image_path> -m <dark|light>
 # or using this rice background config
+# TODO -m flag
 BACKGROUND_FILE=$(jq -r '.background' ~/.config/sway/config.json)
 matugen image $BACKGROUND_FILE
+```
+
+### Installing runcat icons from original repo
+
+I've created a [runcat](https://github.com/win0err/gnome-runcat)-like icon on the sidebar. You can download the icons from the original repo in order to run `ags` without errors:
+
+```bash
+./install_runcat_icons.sh
 ```
 
 ### Starting manually
