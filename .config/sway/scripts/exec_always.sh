@@ -12,7 +12,8 @@ fi
 # gsettings list-recursively org.gnome.desktop.interface
 gsettings set org.gnome.desktop.interface gtk-theme "Orchis-${COLOR^}-${MODE^}-Compact"
 gsettings set org.gnome.desktop.interface color-scheme "prefer-$MODE"
-# TODO cursor-theme, icon-theme
+gsettings set org.gnome.desktop.interface icon-theme "Adwaita-${COLOR}"
+# TODO cursor-theme
 
 # Background file
 BACKGROUND_FILE=$(jq -r '.background' ~/.config/sway/config.json)

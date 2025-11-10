@@ -30,7 +30,8 @@ fi
 # gsettings list-recursively org.gnome.desktop.interface
 gsettings set org.gnome.desktop.interface gtk-theme "Orchis-${COLOR^}-${MODE^}-Compact"
 gsettings set org.gnome.desktop.interface color-scheme "prefer-$MODE"
-# TODO cursor-theme, icon-theme
+gsettings set org.gnome.desktop.interface icon-theme "Adwaita-${COLOR}"
+# TODO cursor-theme
 
 # Set background image
 swaymsg output "*" bg $BACKGROUND_FILE_EXPANDED fill

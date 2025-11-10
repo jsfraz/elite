@@ -24,6 +24,8 @@ Rice for my shit Elitebook 840.
 - [darkman](https://gitlab.com/WhyNotHugo/darkman)
 - [nemo](https://github.com/linuxmint/nemo)
 - [Orchis-theme](https://github.com/vinceliuice/Orchis-theme) (`./install.sh -t all -s compact`)
+- [MoreWaita](https://github.com/somepaulo/MoreWaita)
+- [Adwaita-colors](https://github.com/dpejoh/Adwaita-colors) (run `sudo ./morewaita.sh` after installing MoreWaita and Adwaita-colors)
 
 ## swayfx
 
