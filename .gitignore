@@ -1,9 +1,7 @@
-# Ignore, because it's symlinked to ~/.cache/wal
-.config/ags/wal
-
+# matugen
 .config/ags/colors.scss
 
-# All backgrounds ever from gnome-backgrounds package
+# Backgrounds and config
 all-gnome-backgrounds/
 .config/sway/backgrounds/
 .config/sway/config.json

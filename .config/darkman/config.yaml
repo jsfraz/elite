@@ -1,0 +1,6 @@
+lat: 50
+lng: 14
+# TODO Working geoclue
+usegeoclue: false
+dbusserver: true
+portal: true

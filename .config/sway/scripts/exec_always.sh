@@ -1,9 +1,18 @@
-#!/bin/sh
+#!/bin/bash
+
+COLOR=red
+MODE=$(darkman get)
 
 # Create ~/.config/sway/config.json with default background
 if [ ! -f ~/.config/sway/config.json ]; then
-    jq -n '{background: "~/.config/sway/backgrounds/LightWaves-b4b59bda185758ebaa2735e4e9fc78a2f7277c64.webp"}' > ~/.config/sway/config.json
+    jq -n '{background: "~/.config/sway/backgrounds/LightWaves-b4b59bda185758ebaa2735e4e9fc78a2f7277c64.webp", mode: "'$MODE'", color: "'$COLOR'"}' > ~/.config/sway/config.json
 fi
+
+# GTK theme
+# gsettings list-recursively org.gnome.desktop.interface
+gsettings set org.gnome.desktop.interface gtk-theme "Orchis-${COLOR^}-${MODE^}-Compact"
+gsettings set org.gnome.desktop.interface color-scheme "prefer-$MODE"
+# TODO cursor-theme, icon-theme
 
 # Background file
 BACKGROUND_FILE=$(jq -r '.background' ~/.config/sway/config.json)
@@ -14,10 +23,8 @@ BACKGROUND_FILE_EXPANDED="${BACKGROUND_FILE/#\~/$HOME}"
 # Set background image
 swaymsg output "*" bg $BACKGROUND_FILE_EXPANDED fill
 
-# matugen (if no ags SCSS exists)
-if [ ! -f ~/.config/ags/colors.scss ]; then
-    matugen image $BACKGROUND_FILE_EXPANDED -m light
-fi
+# matugen
+matugen image $BACKGROUND_FILE_EXPANDED -m $MODE
 
 # ags
 ASTAL_BATTERY_DIR=$(dirname $(find /usr -name "*AstalBattery*.typelib" 2>/dev/null))

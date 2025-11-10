@@ -18,7 +18,12 @@ Rice for my shit Elitebook 840.
 - [mako](https://github.com/emersion/mako)
 - [jq](https://github.com/jqlang/jq)
 - [ydotool](https://github.com/ReimuNotMoe/ydotool)
+# TODO change
 - [gnome-system-monitor](https://gitlab.gnome.org/GNOME/gnome-system-monitor)
+- [zenity-gtk3](https://aur.archlinux.org/packages/zenity-gtk3) (or [zenity](https://gitlab.gnome.org/GNOME/zenity) if not available)
+- [darkman](https://gitlab.com/WhyNotHugo/darkman)
+- [nemo](https://github.com/linuxmint/nemo)
+- [Orchis-theme](https://github.com/vinceliuice/Orchis-theme) (`./install.sh -t all -s compact`)
 
 ## swayfx
 
@@ -52,6 +57,14 @@ tip: running from an xwayland terminal can cause this, for example VsCode` you n
 ln -sf $PWD/.config/ags ~/.config/ags
 ```
 
+### Installing runcat icons from original repo
+
+I've created a [runcat](https://github.com/win0err/gnome-runcat)-like icon on the sidebar. You can download the icons from the original repo in order to run `ags` without errors:
+
+```bash
+./install_runcat_icons.sh
+```
+
 ### Generating SCSS manully
 
 To run `ags`, you need to generate SCSS using `matugen`:
@@ -62,14 +75,6 @@ matugen image <image_path> -m <dark|light>
 # TODO -m flag
 BACKGROUND_FILE=$(jq -r '.background' ~/.config/sway/config.json)
 matugen image $BACKGROUND_FILE
-```
-
-### Installing runcat icons from original repo
-
-I've created a [runcat](https://github.com/win0err/gnome-runcat)-like icon on the sidebar. You can download the icons from the original repo in order to run `ags` without errors:
-
-```bash
-./install_runcat_icons.sh
 ```
 
 ### Starting manually
@@ -109,4 +114,23 @@ Then enable and start the service:
 sudo systemctl daemon-reload
 sudo systemctl enable ydotool.service
 sudo systemctl start ydotool.service
+```
+
+## darkman
+
+To manage dark/light themes automatically based on the time of day.
+
+### Linking config folders
+
+```bash
+ln -sf $PWD/.config/darkman ~/.config/darkman
+ln -sf $PWD/.local/share/darkman ~/.local/share/darkman
+```
+
+You can edit `lat` and `lng` in `~/.config/darkman/config.yml`.
+
+After installing and creating config, enable the user service:
+
+```bash
+systemctl --user enable --now darkman.service
 ```

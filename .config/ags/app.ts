@@ -19,6 +19,13 @@ const MENU_OPTIONS: Array<MenuOption> = [
     }
   }),
   new MenuOption({
+    label: "Files",
+    icon: "",
+    action: () => {
+      execAsync(["nemo"]).catch(console.error);
+    }
+  }),
+  new MenuOption({
     label: "Appearance",
     icon: "󰏘",
     submenu: [
