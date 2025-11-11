@@ -128,7 +128,7 @@ export default function Menu(gdkmonitor: Gdk.Monitor, menuOptions: Array<MenuOpt
               </box>
             </button>) : (
               <Gtk.Separator
-                class={animate((val) => `menu-button ${val ? "animate" : ""}`)}
+                class={animate((val) => `separator menu-button ${val ? "animate" : ""}`)}
               />)
           )}
         </For>

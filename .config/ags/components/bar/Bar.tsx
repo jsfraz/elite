@@ -41,9 +41,9 @@ export default function Bar(gdkmonitor: Gdk.Monitor) {
           class={"bottomPadding boxAnimation"}
         >
           <RunCat />
-          <Gtk.Separator class="short-separator" />
+          <Gtk.Separator class="separator short-separator" />
           <BatteryIndicator />
-          <Gtk.Separator class="short-separator" />
+          <Gtk.Separator class="separator short-separator" />
           <Clock />
         </box>
       </centerbox>

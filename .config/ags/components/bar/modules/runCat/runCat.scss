@@ -1,6 +1,17 @@
 button.RunCat {
     border-radius: 20px;
 
+    // Remove focus border
+    border: none;
+    outline: none;
+    box-shadow: none;
+
+    &:focus {
+        border: none;
+        outline: none;
+        box-shadow: none;
+    }
+
     image {
         filter: brightness(0) saturate(100%) invert(1);
         opacity: 1;

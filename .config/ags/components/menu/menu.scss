@@ -22,6 +22,17 @@
     font-weight: normal;
     transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 
+    // Remove focus border
+    border: none;
+    outline: none;
+    box-shadow: none;
+
+    &:focus {
+        border: none;
+        outline: none;
+        box-shadow: none;
+    }
+
     &.animate {
       $button-count: 10;  // Not actual count
       $animation-delay-step: 0.05s;

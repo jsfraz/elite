@@ -58,7 +58,7 @@ const MENU_OPTIONS: Array<MenuOption> = [
 function setupSubmenus(submenuOptions: Array<MenuOption>, gdkmonitor: Gdk.Monitor): void {
   submenuOptions.forEach((option, index) => {
     if (option.submenu) {
-      const ENTRY_HEIGHT = 28;
+      const ENTRY_HEIGHT = 26;
       const SEPARATOR_HEIGHT = 1;
       // Calculate how many items are before this submenu
       let plusMargin = 0;

@@ -1,5 +1,16 @@
 button.Clock {
     padding-top: 5px;
+    
+    // Remove focus border
+    border: none;
+    outline: none;
+    box-shadow: none;
+
+    &:focus {
+        border: none;
+        outline: none;
+        box-shadow: none;
+    }
 
     .digit-stack {
         font-size: 12px;
