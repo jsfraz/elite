@@ -26,8 +26,15 @@ else
     mv ~/.config/sway/config.json.tmp ~/.config/sway/config.json
 fi
 
+# Update color based on new background
+COLOR=$(~/.config/sway/scripts/get_color.py $BACKGROUND_FILE_EXPANDED)
+jq ".background = \"$BACKGROUND_FILE_EXPANDED\" | .mode = \"$MODE\" | .color = \"$COLOR\"" ~/.config/sway/config.json > ~/.config/sway/config.json.tmp && \
+mv ~/.config/sway/config.json.tmp ~/.config/sway/config.json
+
 # GTK theme
 # gsettings list-recursively org.gnome.desktop.interface
+COLOR=$(jq -r '.color' ~/.config/sway/config.json)
+MODE=$(jq -r '.mode' ~/.config/sway/config.json)
 gsettings set org.gnome.desktop.interface gtk-theme "Orchis-${COLOR^}-${MODE^}-Compact"
 gsettings set org.gnome.desktop.interface color-scheme "prefer-$MODE"
 gsettings set org.gnome.desktop.interface icon-theme "Adwaita-${COLOR}"

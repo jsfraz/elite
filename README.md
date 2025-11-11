@@ -26,6 +26,7 @@ Rice for my shit Elitebook 840.
 - [Orchis-theme](https://github.com/vinceliuice/Orchis-theme) (`./install.sh -t all -s compact`)
 - [MoreWaita](https://github.com/somepaulo/MoreWaita)
 - [Adwaita-colors](https://github.com/dpejoh/Adwaita-colors) (run `sudo ./morewaita.sh` after installing MoreWaita and Adwaita-colors)
+- [python-pillow](https://pypi.org/project/pillow/) package
 
 ## swayfx
 
