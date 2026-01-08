@@ -9,6 +9,8 @@ else
     AUTOCLICK_ENABLED="true"
 fi
 
+jrch set autoclick_enabled "$AUTOCLICK_ENABLED"
+
 if [ "$AUTOCLICK_ENABLED" = "true" ]; then
     notify-send "Autoclick" "Enabled ($AUTOCLICK_INTERVAL ms)"
 
